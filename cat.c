@@ -10,7 +10,7 @@
 
 // Taken from
 // https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file
-int is_regular_file(const char *path) {
+int isRegularFile(const char *path) {
   struct stat path_stat;
   stat(path, &path_stat);
   return S_ISREG(path_stat.st_mode);
@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
       continue;
     }
 
-    if (!(is_regular_file(fname))) {
+    if (!(isRegularFile(fname))) {
       fprintf(stderr, "Error: not a regular file: %s.\n", fname);
       continue;
     }
